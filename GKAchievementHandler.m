@@ -9,6 +9,7 @@
 #import <GameKit/GameKit.h>
 #import "GKAchievementHandler.h"
 #import "GKAchievementNotification.h"
+#import "cocos2d.h"
 
 static GKAchievementHandler *defaultHandler = nil;
 
@@ -60,7 +61,7 @@ static GKAchievementHandler *defaultHandler = nil;
     self = [super init];
     if (self != nil)
     {
-        _topView = [[UIApplication sharedApplication] keyWindow];
+        _topView = [[CCDirector sharedDirector] openGLView];
         _queue = [[NSMutableArray alloc] initWithCapacity:0];
         self.image = [UIImage imageNamed:@"gk-icon.png"];
     }
