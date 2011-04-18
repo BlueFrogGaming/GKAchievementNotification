@@ -80,7 +80,7 @@ static GKAchievementHandler *defaultHandler = nil;
 - (void)notifyAchievement:(GKAchievementDescription *)achievement
 {
     GKAchievementNotification *notification = [[[GKAchievementNotification alloc] initWithAchievementDescription:achievement] autorelease];
-    notification.frame = kGKAchievementFrameStart;
+    notification.frame = [notification cocos2dFrameStart];
     notification.handlerDelegate = self;
 
     [_queue addObject:notification];
@@ -93,7 +93,7 @@ static GKAchievementHandler *defaultHandler = nil;
 - (void)notifyAchievementTitle:(NSString *)title andMessage:(NSString *)message
 {
     GKAchievementNotification *notification = [[[GKAchievementNotification alloc] initWithTitle:title andMessage:message] autorelease];
-    notification.frame = kGKAchievementFrameStart;
+    notification.frame = [notification cocos2dFrameStart];
     notification.handlerDelegate = self;
 
     [_queue addObject:notification];

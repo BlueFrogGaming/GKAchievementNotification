@@ -174,7 +174,7 @@
     [UIView setAnimationDelegate:self];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDidStopSelector:@selector(animationInDidStop:finished:context:)];
-    self.frame = kGKAchievementFrameEnd;
+    self.frame = [self cocos2dFrameEnd];
     [UIView commitAnimations];
 }
 
@@ -186,7 +186,7 @@
     [UIView setAnimationDelegate:self];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDidStopSelector:@selector(animationOutDidStop:finished:context:)];
-    self.frame = kGKAchievementFrameStart;
+    self.frame = [self cocos2dFrameStart];
     [UIView commitAnimations];
 }
 
@@ -215,6 +215,16 @@
         self.textLabel.frame = kGKAchievementText1;
         self.detailLabel.frame = kGKAchievementText2;
     }
+}
+
+- (CGRect)cocos2dFrameStart {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    return CGRectMake(winSize.width/2 - self.frame.size.width/2, -self.frame.size.height - 10, self.frame.size.width, self.frame.size.height);
+}
+
+- (CGRect)cocos2dFrameEnd {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    return CGRectMake(winSize.width/2 - self.frame.size.width/2, 10, self.frame.size.width, self.frame.size.height);
 }
 
 @end

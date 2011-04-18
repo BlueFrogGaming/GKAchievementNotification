@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "cocos2d.h"
 
 @class GKAchievementNotification;
 
-#define kGKAchievementAnimeTime     0.4f
-#define kGKAchievementDisplayTime   1.75f
+#define kGKAchievementAnimeTime     0.5f
+#define kGKAchievementDisplayTime   2.0f
 
 #define kGKAchievementDefaultSize   CGRectMake(0.0f, 0.0f, 284.0f, 52.0f);
 #define kGKAchievementFrameStart    CGRectMake(18.0f, -53.0f, 284.0f, 52.0f);
@@ -129,4 +130,10 @@
  */
 - (void)setImage:(UIImage *)image;
 
+/**
+ * Start and end frames for cocos2d animation
+ * @return a CGRect frame
+ */
+- (CGRect)cocos2dFrameStart;
+- (CGRect)cocos2dFrameEnd;
 @end
